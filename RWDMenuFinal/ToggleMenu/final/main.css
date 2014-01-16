@@ -1,0 +1,105 @@
+/**
+Toggle Menu:
+1. Add toggle menu button
+<a href="#" class="menu-link">Menu</a>
+
+2. Style toggle menu button.
+Hide in LargeScreen.
+Show in SmallScreen.
+
+For SmallScreen:
+a.menu-link {
+  float: right;
+  display: block;
+  padding: 1em;
+}
+For LargeScreen:
+a.menu-link {
+  display: none;
+}
+
+3. In SmallScreen,
+Hide Vertical Menu
+When active, show Vertical Menu
+
+Hide:
+.js nav[role=navigation] {
+	overflow: hidden;
+	max-height: 0;
+}
+Show:
+nav[role=navigation].active {
+	max-height: 15em;
+}
+
+In LargeScreen, reset max-height
+nav[role=navigation] {
+		max-height: none;
+}
+*/
+@charset "UTF-8";
+/* CSS Document */
+/* Global and SmallScreen */
+body { margin:0; padding:0; }
+.pattern {
+	background: #f7f7f7;
+	border-bottom: 1px solid #808080;
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+section { padding:1em; }
+a.menu-link {
+	float:right;
+	display:block;
+	padding:1em;
+}
+/* Hide */
+nav[role=navigation] {
+	max-height:0;
+}
+/* Show */
+nav[role=navigation].active {
+	max-height:15em;
+}
+/* Vertical Menu */
+nav[role=navigation] {
+	clear: both;
+	-webkit-transition: all 0.3s ease-out;  
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+nav[role=navigation] ul {
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #808080;
+}
+nav[role=navigation] li a {
+	display: block;
+	padding: 0.8em;
+	border-bottom: 1px solid #808080;
+}
+
+/* Large Screen */
+@media screen and (min-width: 48.25em) {
+	a.menu-link {
+		display:none;
+	}
+	nav[role=navigation] {
+		max-height: none;
+	}
+	nav[role=navigation] ul {
+		margin: 0 0 0 -0.25em;
+		border: 0;
+	}
+/* Horizontal Navigation */	
+	nav[role=navigation]  li {
+		display: inline-block;
+		margin: 0 0.25em;
+	}
+	nav[role=navigation] li a {
+		border: 0;
+	}
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MTM4053 - RWD Menu :: Toggle Menu </title>
+<!-- Code Reference: http://codepen.io/bradfrost/pen/sHvaz -->
+<link href="main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--Pattern HTML-->
+  <div id="pattern" class="pattern">
+    <!--Begin Pattern HTML-->
+       <a href="#" class="menu-link">Menu</a>
+		<nav id="menu" role="navigation">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Products</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!--End Pattern HTML-->
+    <section>
+    <h2>Toggle Menu</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consequat augue nec aliquet porttitor. Praesent sit amet semper massa, pellentesque pellentesque sem. In vestibulum volutpat orci, ac lacinia ipsum tempor in. Vivamus dui urna, consectetur eget nunc dictum, porttitor dapibus turpis. Morbi at erat turpis. Aliquam tempus quam et justo ullamcorper, fringilla rhoncus sem fermentum. Vivamus id mi vitae magna adipiscing porta nec sed nulla. Etiam pulvinar tincidunt ligula quis accumsan. Quisque ullamcorper nulla vel tellus facilisis mollis. Pellentesque non quam vitae orci ullamcorper sollicitudin. Aenean viverra eros quam. Donec et leo at dolor interdum feugiat at eu lorem. Pellentesque bibendum arcu at venenatis malesuada. Aenean ullamcorper est eu mi dictum, vel consequat mi molestie.</p>
+    </section>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    var menulink = $('.menu-link');
+	var nav = $('#menu');
+  
+	menulink.click(function() {
+  		nav.toggleClass('active');
+  		return false;
+	});
+});
+</script>
+</body>
+</html>

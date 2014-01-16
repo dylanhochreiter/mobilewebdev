@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/* CSS Document */
+/* Global and SmallScreen */
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body { margin:0; padding:0; }
+ol, ul { 
+	list-style: none;
+	margin: 0;
+	padding: 0;
+ }
+section {
+	padding:1em;
+}
+.pattern {
+	background: #f7f7f7;
+	border-bottom: 1px solid #808080;
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+
+.menu, .menu > ul ul {
+	clear: both;
+	-webkit-transition: all 0.3s ease-out;  
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+.menu, .menu > ul ul {
+	overflow: hidden;
+}
+
+.menu > ul {
+	border-top: 1px solid #808080;
+}
+.menu li a {
+	color: #000;
+	display: block;
+	padding: 0.8em;
+	border-bottom: 1px solid #808080;
+	position: relative;
+}
+.menu li.has-subnav > a:after {
+	content: '+';
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	font-size: 1.5em;
+	padding: 0.25em 0.5em;
+}
+.menu li.has-subnav > a.active:after {
+	content: "-";
+}
+
+
+@media screen and (min-width: 48.25em) {
+	.pattern {
+		overflow: visible;
+	}
+	/* Horizontal Menu Submenu visibility toggle between display:none <-> block using
+	 * hover state
+	 */
+	.menu, .menu > ul ul {
+		max-height: none; /* override max-height:0 from SmallScreen */
+		overflow: visible;
+		background: none;
+	}
+	.menu > ul ul {
+		background: #808080;
+		display: none;
+	}
+	.menu > ul li:hover > ul {
+		display: block;
+	}
+	
+	.menu ul {
+		margin: 0 0 0 -0.25em;
+		border: 0;
+	}
+	.menu li a {
+		border: 0;
+	}
+	.menu li.has-subnav > a {
+		padding-right: 2em;
+	}
+	/* Level2+ with submenu has added content to indicate the submenu */
+	.menu li.has-subnav > a:after {
+		content: ">";
+		font-size: 1em;
+		padding: 0.8em 0.5em;
+	}
+	/* Level1 with submenu has added content to indicate the submenu */
+	.menu .level-1 > li.has-subnav > a:after {
+		content: "▼";
+	}
+	.menu > ul li {
+		margin: 0 0.25em;
+	}
+	/* Horizontal Menu Submenu positioning styling */
+	/* Use relative-absolute to position the submenus */
+	/* '>' is a child selector so .menu > ul is a top ul immediatly after .menu */ 
+	.menu > ul > li {
+		display: inline-block;
+		position: relative;
+	}
+	.menu > ul ul {
+		position: absolute;
+		top: 0;
+		left: 12em;
+		width: 12em;
+	}
+	.menu > ul ul li {
+		position: relative;
+	}
+	.menu > ul ul.level-2 {
+		top: 3em;
+		left: 0;
+	}
+}

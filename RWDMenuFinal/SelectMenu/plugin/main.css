@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/*
+Select Menu:
+1. Add .tinynav class style
+/* styles for desktop 
+.tinynav { display: none }
+
+/* styles for mobile 
+@media screen and (max-width: 37.5em) {
+	.tinynav { display: block }
+	.nav-list { display: none }
+}
+
+2. Add javascript code
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="tinynav.min.js"></script>
+<script>
+  $(function () {
+    $(".nav-list").tinyNav();
+  });
+</script>
+*/
+/* CSS Document */
+/* Global and SmallScreen */
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body { margin:0; padding:0; }
+ol, ul { 
+	list-style: none;
+	margin: 0;
+	padding: 0;
+ }
+section {
+	padding:1em;
+}
+.pattern {
+	background: #f7f7f7;
+	border-bottom: 1px solid #808080;
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+.navigation {
+	padding: 1em;
+}
+select {
+	width: 100%;
+}
+.nav-list {
+	overflow: hidden;
+}
+.nav-list li {
+	float: left;
+	margin-right: 1em;
+}
+
+/* styles for desktop */
+.tinynav { display: none }
+
+/* styles for mobile */
+@media screen and (max-width: 37.5em) {
+	.tinynav { display: block }
+	.nav-list { display: none }
+}

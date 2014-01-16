@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MTM4053 - RWD Menu :: Select Menu</title>
+<!-- Code Ref: http://codepen.io/bradfrost/ -->
+<link href="main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--Pattern HTML-->
+<div id="pattern" class="pattern">
+    <!--Begin Pattern HTML-->
+    <nav class="navigation" role="navigation">
+        <ul class="nav-list">
+             <li><a href="#">Home</a></li>
+             <li><a href="#">Products</a></li>
+             <li><a href="#">Services</a></li>
+             <li><a href="#">Locations</a></li>
+             <li><a href="#">About</a></li>
+             <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+</div>
+<!--End Pattern HTML-->
+	<section class="container">
+    <h2>RWD Select Menu</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consequat augue nec aliquet porttitor. Praesent sit amet semper massa, pellentesque pellentesque sem. In vestibulum volutpat orci, ac lacinia ipsum tempor in. Vivamus dui urna, consectetur eget nunc dictum, porttitor dapibus turpis. Morbi at erat turpis. Aliquam tempus quam et justo ullamcorper, fringilla rhoncus sem fermentum. Vivamus id mi vitae magna adipiscing porta nec sed nulla. Etiam pulvinar tincidunt ligula quis accumsan. Quisque ullamcorper nulla vel tellus facilisis mollis. Pellentesque non quam vitae orci ullamcorper sollicitudin. Aenean viverra eros quam. Donec et leo at dolor interdum feugiat at eu lorem. Pellentesque bibendum arcu at venenatis malesuada. Aenean ullamcorper est eu mi dictum, vel consequat mi molestie.</p>
+    </section>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  /*! http://tinynav.viljamis.com v1.03 by @viljamis */
+	(function ($, window, i) {
+	  $.fn.tinyNav = function (options) {
+	
+		// Default settings
+		var settings = $.extend({
+		  'active' : 'selected', // String: Set the "active" class
+		  'header' : false // Boolean: Show header instead of the active item
+		}, options);
+	
+		return this.each(function () {
+	
+		  // Used for namespacing
+		  i++;
+	
+		  var $nav = $(this),
+			// Namespacing
+			namespace = 'tinynav',
+			namespace_i = namespace + i,
+			l_namespace_i = '.l_' + namespace_i,
+			$select = $('<select/>').addClass(namespace + ' ' + namespace_i);
+	
+		  if ($nav.is('ul,ol')) {
+	
+			if (settings.header) {
+			  $select.append(
+				$('<option/>').text('Navigation')
+			  );
+			}
+	
+			// Build options
+			var options = '';
+	
+			$nav
+			  .addClass('l_' + namespace_i)
+			  .find('a')
+			  .each(function () {
+				options +=
+				  '<option value="' + $(this).attr('href') + '">' +
+				  $(this).text() +
+				  '</option>';
+			  });
+	
+			// Append options into a select
+			$select.append(options);
+	
+			// Select the active item
+			if (!settings.header) {
+			  $select
+				.find(':eq(' + $(l_namespace_i + ' li')
+				.index($(l_namespace_i + ' li.' + settings.active)) + ')')
+				.attr('selected', true);
+			}
+	
+			// Change window location
+			$select.change(function () {
+			  window.location.href = $(this).val();
+			});
+	
+			// Inject select
+			$(l_namespace_i).after($select);
+	
+		  }
+	
+		});
+	
+	  };
+	})(jQuery, this, 0);
+	
+	$(".nav-list").tinyNav();
+});
+</script>
+</body>
+</html>
