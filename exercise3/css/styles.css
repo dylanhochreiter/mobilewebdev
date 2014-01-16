@@ -62,7 +62,7 @@ DESCRIPTION: A premium business and portfolio theme.
 	.grid_9,
 	.grid_10,
 	.grid_11,
-	.grid_12 							{display:inline; float:left; position:relative; margin-left:20px; margin-right:20px;}
+	.grid_12 							{ width: 100% !important; display:inline; float:left; position:relative; margin-left:20px; margin-right:20px;}
 	.container_12 .grid_1				{width:45px;}
 	.container_12 .grid_2 				{width:130px;}
 	.container_12 .grid_3 				{width:215px;}
@@ -240,3 +240,11 @@ DESCRIPTION: A premium business and portfolio theme.
 	* html .clearfix 					{height:1%;}
 	.alpha								{margin-left:0;}
 	.omega								{margin-right:0;}
+
+	/* Media Queries */
+
+	@media (max-width: 980px){ 
+		.quicknavgrid_3{ 
+			width: 100% !important;
+		}
+	}
